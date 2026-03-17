@@ -1,6 +1,10 @@
 ---
 description: Generate structured test data for test cases.
+skills:
+  - test_data_generator
 ---
+
+> **BẮT BUỘC (MANDATORY SKILL):** Bạn PHẢI nạp và đọc kỹ nội dung của skill **`test_data_generator`** (tại `.agent/skills/test_data_generator/SKILL.md`) trước khi bắt đầu thực hiện tác vụ này.
 
 Generate test data for the provided test case or feature.
 

@@ -1,6 +1,10 @@
 ---
 description: Generate regression test suite.
+skills:
+  - qa-automation-engineer
 ---
+
+> **BẮT BUỘC (MANDATORY SKILL):** Bạn PHẢI nạp và đọc kỹ nội dung của skill **`qa-automation-engineer`** (tại `.agent/skills/qa-automation-engineer/SKILL.md`) trước khi bắt đầu thực hiện tác vụ này.
 
 Generate regression test scenarios for the application.
 

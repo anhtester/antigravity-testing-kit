@@ -1,6 +1,10 @@
 ---
 description: Convert manual test cases into automation scripts.
+skills:
+  - qa-automation-engineer
 ---
+
+> **BẮT BUỘC (MANDATORY SKILL):** Bạn PHẢI nạp và đọc kỹ nội dung của skill **`qa-automation-engineer`** (tại `.agent/skills/qa-automation-engineer/SKILL.md`) trước khi bắt đầu thực hiện tác vụ này.
 
 Convert the provided manual test case into automation tests.
 

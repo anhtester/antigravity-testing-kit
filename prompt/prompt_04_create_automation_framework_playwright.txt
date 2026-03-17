@@ -1,0 +1,39 @@
+### Role
+Bạn là một Senior Test Automation Architect chuyên gia về hệ sinh thái Node.js và Playwright. Bạn có nhiều năm kinh nghiệm trong việc xây dựng các framework kiểm thử End-to-End (E2E) hiện đại, hiệu năng cao, dễ mở rộng và tối ưu hóa cho CI/CD.
+
+### Context
+Tôi đang cần xây dựng một E2E Web UI Automation Framework từ đầu (scratch) cho dự án của công ty. Framework này cần đảm bảo tốc độ thực thi nhanh, tận dụng tối đa sức mạnh của môi trường Node.js. Các yếu tố cốt lõi bao gồm cấu trúc dự án rõ ràng, quản lý dữ liệu test tốt và dễ bảo trì.
+Công nghệ cốt lõi được lựa chọn là Playwright Test và ngôn ngữ TypeScript.
+
+### Task
+Hãy thiết kế và viết code mẫu (boilerplate) cho một Playwright Automation Framework hoàn chỉnh. Đi qua từng thành phần quan trọng của framework và viết các class/file cấu hình cơ bản. Các thành phần bắt buộc phải có bao gồm:
+1. Thiết kế kiến trúc thư mục dự án (Folder Structure): Hiện đại, tách biệt rõ ràng giữa configs, tests, pages, data, và utils.
+2. Page Object Model (POM): Cấu trúc cơ bản cho một BasePage chứa các hàm bọc (wrapper methods) an toàn cho Playwright API và một SamplePage (ví dụ LoginPage) kế thừa từ nó.
+3. Configuration Management: Cấu hình file playwright.config.ts chuẩn chỉ. Bao gồm cấu hình cho việc chạy nhiều trình duyệt (Chromium, Firefox, WebKit), cấu hình timeout, retries, workers (cho parallel execution) và reporters.
+4. Environment Variables: Cách quản lý các cấu hình theo môi trường (dev, staging, prod) sử dụng .env file và thư viện dotenv.
+5. Data-Driven Testing (Test Data): Cơ chế đọc dữ liệu test tĩnh (từ file .json) và cách sử dụng nó linh hoạt trong (Data-driven/Parametrized tests) của Playwright.
+6. Fixtures (Playwright Fixtures): Cách tạo và sử dụng custom fixtures trong Playwright để quản lý state, khởi tạo/hủy Page Object tự động cho các test case mà không cần lặp lại code trong beforeEach.
+7. Dependencies: Nội dung cơ bản của file package.json với các thư viện và script cần thiết để chạy test.
+
+### Constraints
+* Code bắt buộc phải viết bằng TypeScript và tuân thủ chặt chẽ Strict Mode.
+* Sử dụng Test Runner mặc định của thư viện là @playwright/test.
+* Áp dụng nguyên lý Page Object Model (POM), không viết trực tiếp locators và actions lộn xộn trong file test.
+* Tận dụng tối đa điểm mạnh của Playwright là Auto-waiting, không sử dụng explicit delays (như page.waitForTimeout()) trừ khi xử lý các trường hợp siêu đặc biệt. Sử dụng Locator APIs một cách chính xác.
+* Chú ý đến việc xử lý Locator hiện đại (ví dụ: getByRole, getByTestId).
+* Tận dụng Playwright Fixtures để setup BasePage thay vì khởi tạo thủ công bằng từ khóa new lặp đi lặp lại.
+* Code sinh ra cần có comment giải thích ngắn gọn, rõ ràng theo chuẩn Clean Code.
+** Dùng thông tin đăng nhập vào hệ thống:
+https://crm.anhtester.com/admin/authentication
+Email: admin@example.com
+Password: 123456
+
+### Output format
+Vui lòng trình bày câu trả lời của bạn theo bố cục sau:
+1. Directory Structure: Biểu diễn bằng cấu trúc cây thư mục (tree format) giải thích ngắn gọn nhiệm vụ từng thư mục.
+2. Setup & Dependencies: Nội dung file package.json cùng lệnh setup khởi tạo.
+3. Core Configurations: Code cho playwright.config.ts và xử lý đa môi trường bằng dotenv (.env file mẫu).
+4. Page Object Model (POM): Code cho BasePage.ts (các common actions) và LoginPage.ts.
+5. Custom Fixtures: Code cho file fixtures.ts dùng để tự động inject Page Objects vào test (extend test).
+6. Implementations & Test Data: Code định nghĩa file dữ liệu test (ví dụ .json) và file test thực tế login.spec.ts có sử dụng Data-Driven và Fixtures.
+7. Hướng dẫn cách chạy dự án (How to run): Cung cấp các lệnh chạy script hữu ích (chạy UI mode, chạy parallel, xem report).

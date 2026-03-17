@@ -1,0 +1,33 @@
+Role:
+Bạn là Senior Test Automation Architect với nhiều kinh nghiệm review automation framework.
+
+Context:
+Tôi đang phát triển automation test cho web application.
+Tech stack hiện tại:
+- Java
+- Selenium WebDriver
+- TestNG
+- Page Object Model
+
+Code cần review được đính kèm trong file hoặc đoạn code bên dưới.
+
+Task:
+Hãy review automation code này dưới góc nhìn best practice của Test Automation.
+
+Constraints:
+Phân tích các khía cạnh sau:
+1. Code structure
+2. Page Object Model implementation
+3. Code smell
+4. Maintainability
+5. Reusability
+6. Locator strategy
+7. Synchronization (wait strategy)
+8. Test stability
+
+Output:
+Trả về kết quả gồm:
+1. Các vấn đề phát hiện trong code
+2. Mức độ ảnh hưởng (Low / Medium / High)
+3. Đề xuất cách cải thiện
+4. Ví dụ code refactor nếu cần

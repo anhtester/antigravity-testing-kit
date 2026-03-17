@@ -1,6 +1,10 @@
 ---
 description: Execute UI steps using browser debugging and generate automation scripts.
+skills:
+  - ui-debug-agent
 ---
+
+> **BẮT BUỘC (MANDATORY SKILL):** Bạn PHẢI nạp và đọc kỹ nội dung của skill **`ui-debug-agent`** (tại `.agent/skills/ui-debug-agent/SKILL.md`) trước khi bắt đầu thực hiện tác vụ này.
 
 Execute the provided UI flow and generate Selenium automation code.
 

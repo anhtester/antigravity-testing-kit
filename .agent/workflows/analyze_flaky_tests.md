@@ -1,6 +1,10 @@
 ---
 description: Analyze automation tests and detect flaky test causes.
+skills:
+  - flaky_test_analyzer
 ---
+
+> **BẮT BUỘC (MANDATORY SKILL):** Bạn PHẢI nạp và đọc kỹ nội dung của skill **`flaky_test_analyzer`** (tại `.agent/skills/flaky_test_analyzer/SKILL.md`) trước khi bắt đầu thực hiện tác vụ này.
 
 Analyze automation tests to identify flaky test causes and suggest improvements.
 

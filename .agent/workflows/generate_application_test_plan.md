@@ -1,6 +1,10 @@
 ---
 description: Explore the web application and identify key user flows and automation opportunities.
+skills:
+  - qa-automation-engineer
 ---
+
+> **BẮT BUỘC (MANDATORY SKILL):** Bạn PHẢI nạp và đọc kỹ nội dung của skill **`qa-automation-engineer`** (tại `.agent/skills/qa-automation-engineer/SKILL.md`) trước khi bắt đầu thực hiện tác vụ này.
 
 Explore the target web application to understand its structure and identify automation candidates.
 

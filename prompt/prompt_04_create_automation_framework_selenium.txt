@@ -1,0 +1,39 @@
+### Role
+Bạn là một Senior Automation QA Engineer và Software Architect có nhiều năm kinh nghiệm trong việc thiết kế và xây dựng các hệ thống kiểm thử tự động (Automation Testing Framework) có khả năng mở rộng, độ ổn định cao và dễ bảo trì.
+
+### Context
+Tôi đang cần xây dựng một Web UI Automation Framework từ đầu (scratch) dành cho dự án của công ty. Framework này cần phải hiện đại, dễ bảo trì, dễ mở rộng và hỗ trợ chạy trên môi trường CI/CD một cách mượt mà.
+Công nghệ cốt lõi được lựa chọn là Java, Selenium WebDriver (v4.x) và TestNG.
+
+### Task
+Hãy thiết kế và viết code mẫu (boilerplate) cho một Automation Framework hoàn chỉnh. Đi qua từng thành phần quan trọng của framework và viết các class/file cấu hình cơ bản. Các thành phần bắt buộc phải có bao gồm:
+1. Thiết kế kiến trúc thư mục dự án (Folder Structure) rõ ràng, theo chuẩn Maven.
+2. Page Object Model (POM): Cấu trúc cơ bản cho BasePage và một SamplePage cụ thể.
+3. Core Design: BaseTest bao gồm việc khởi tạo WebDriver an toàn (Thread-safe) bằng ThreadLocal để hỗ trợ chạy Parallel an toàn không bị conflict session.
+4. Data-Driven Testing (Data Test): Cơ chế đọc dữ liệu từ file ngoài (ví dụ JSON hoặc Excel) và kết hợp với DataProvider của TestNG.
+5. Configuration Management: Cơ chế đọc file config.properties (cho các biến môi trường như URL, Browser, Timeout,...).
+6. Parallel Execution & Suite Configuration: File testng.xml được cấu hình để chạy test song song (parallel) ở cấp độ methods/classes.
+7. Dependencies: Nội dung file pom.xml với các thư viện cần thiết nhất (Selenium, TestNG, WebDriverManager nếu cần, Log4j, ExtentReports hoặc Allure).
+
+### Constraints
+* Code phải viết bằng ngôn ngữ Java (version 11 trở lên).
+* Sử dụng Selenium WebDriver 4 và TestNG.
+* Áp dụng triệt để nguyên lý thiết kế Page Object Model (POM) và tuân thủ SOLID principles.
+* Trình duyệt khởi tạo trong BaseTest phải được quản lý bằng ThreadLocal để bắt buộc tương thích với việc chạy Parallel của TestNG.
+* Không sử dụng "Hard Sleep" (Thread.sleep()), thay vào đó tạo các hàm xử lý Smart Waits (Explicit Wait) trong BasePage hoặc WebUI utils.
+* File cấu hình testng.xml phải tối ưu cho việc chạy trên hệ thống CI.
+* Code sinh ra phải có comment giải thích, clean code, naming convention chuẩn Java.
+** Dùng thông tin đăng nhập vào hệ thống:
+https://crm.anhtester.com/admin/authentication
+Email: admin@example.com
+Password: 123456
+
+### Output format
+Vui lòng trình bày câu trả lời của bạn theo bố cục sau:
+1. Directory Structure: Biểu diễn bằng cấu trúc cây thư mục (tree format).
+2. Project dependencies: Cung cấp nội dung file pom.xml.
+3. Core Components: Code cụ thể cho ConfigReader.java và DriverFactory.java (hoặc khởi tạo trong BaseTest).
+4. Base Classes: Code cụ thể cho BaseTest.java (chứa Setup/Teardown) và BasePage.java (chứa các common actions & waits).
+5. Implementations: Code mẫu cho LoginPage.java và LoginTest.java.
+6. Test Data & Runner: Mẫu dữ liệu test, cách gọi DataProvider và nội dung file testng.xml.
+7. Hướng dẫn cách chạy dự án (How to run).

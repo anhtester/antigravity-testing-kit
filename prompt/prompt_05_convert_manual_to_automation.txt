@@ -1,0 +1,38 @@
+### ROLE (Vai trò)
+Bạn là một Senior Test Automation Engineer chuyên nghiệp. Bạn có nhiều năm kinh nghiệm thiết kế kiến trúc Framework độc lập, tối ưu hoá với [Playwright / Selenium / Appium] và viết code bằng ngôn ngữ [Java / TypeScript / Python]. Bạn luân tuân thủ các nguyên tắc thiết kế code sạch (Clean Code) và dễ bảo trì (Maintainability).
+
+### CONTEXT (Ngữ cảnh)
+Tôi có một bộ Test Case thủ công (Manual Test Case) đã được mô tả chi tiết các bước (Steps to reproduce), dữ liệu đầu vào (Test Data) và kết quả mong đợi (Expected Results). Tôi cần chuyển đổi tự động (Automate) Test Case này để tích hợp vào CI/CD pipeline công ty, nhằm chạy hồi quy (Regression Testing) thường xuyên.
+Hệ thống mục tiêu của tôi là [Web / Mobile App] tại đường dẫn: [URL / Package name nếu có].
+
+### TASK (Nhiệm vụ)
+Hãy đọc kỹ nội dung Test Case tôi cung cấp bên dưới (hoặc trong file đính kèm) và viết toàn bộ Automation Script tương ứng. Bao gồm cả việc tạo ra các hàm tương tác tại Page Class và các Assertion (kiểm tra kết quả) tại Test Class.
+---
+[NỘI DUNG TEST CASE VÀ DỮ LIỆU ĐẦU VÀO DÁN VÀO ĐÂY]
+Hoặc: "Dựa vào nội dung file đính kèm theo prompt này."
+---
+
+### CONSTRAINTS (Ràng buộc bắt buộc)
+Để đảm bảo chất lượng code, bạn PHẢI tuân thủ nghiêm ngặt các nguyên tắc sau:
+1. Design Pattern: Áp dụng triệt để Page Object Model (POM). Phân tách rõ Page objects (chứa locators & actions), Test execution (chứa assertions), và Utils/Test data.
+2. Locator Strategy:
+- Locators phải ổn định, không dùng xpath/css quá dài chứa tag cha con liên tiếp.
+- TRUYỆT ĐỐI KHÔNG đoán (guess) cấu trúc DOM. Nếu không biết cấu trúc HTML, hãy tạo biến giả lập (VD: String LOGIN_BUTTON = "//ghi_chu_thay_the_locator_tai_day";) hoặc comment nhắc tôi.
+3. Smart Waits (Xử lý đồng bộ):
+- KHÔNG bao giờ sử dụng Hard Sleep (như Thread.sleep hoặc waitForTimeout).
+- CHỈ sử dụng Smart Waits / Auto-waiting (như expect().toBeVisible(), WebDriverWait, v.v.).
+4. Test Data (Dữ liệu ngẫu nhiên trace được):
+- Các fields yêu cầu unique (như Email, Username, ID) BẮT BUỘC phải sinh dữ liệu ngẫu nhiên nhưng có prefix để dễ truy vết (Ví dụ: test_username_17112023_101530).
+5. Code Quality:
+- Code phải clean, không chứa các debug logs dư thừa (console.log() hoặc System.out.println()).
+- Giải thích code bằng các comment chuyên nghiệp, ngắn gọn bằng Tiếng Việt.
+
+### OUTPUT FORMAT (Định dạng kết quả đầu ra)
+Đầu ra của bạn cần trả về theo đúng định dạng sau:
+1. Giải thích tóm tắt logic: Nêu ngắn gọn cách tiếp cận trong 2-3 câu.
+2. Cấu trúc File dự kiến: Liệt kê tên các file sẽ được tạo (VD: LoginPage.java, LoginTest.java).
+3. Mã nguồn (Source Code):
+- Code của <Tên Trang/Màn Hình> Page Class.
+- Code của <Tên> Test Class.
+- Code của <Tên> Data/Utils Class (nếu có dùng dữ liệu ngẫu nhiên).
+4. Lưu ý / Actions required: Những vị trí nào tôi cần phải gắn locator thực tế (do bạn không thể truy cập DOM).
