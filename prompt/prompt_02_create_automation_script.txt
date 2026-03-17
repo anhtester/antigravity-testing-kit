@@ -8,11 +8,15 @@ Viết automation test script từ test scenario.
 Framework:
 - Language: Java
 - Test Framework: TestNG
-- Automation Tool: Appium / Selenium / Playwright
+- Automation Tool: Selenium WebDriver v4 latest
 - Design Pattern: Page Object Model
+- Build tool: Maven
+- Reporting: Extent Report
+- Logging: Log4j2
 
 Test Scenario:
 [PASTE TEST SCENARIO]
+[URL] và [EMAIL] và [PASSWORD]
 
 # INSTRUCTIONS
 - Viết code clean
@@ -20,6 +24,8 @@ Test Scenario:
 - Có comment rõ ràng
 - Sử dụng locator ổn định
 - Tránh hardcode
+- Sử dụng smart wait
+- Sử dụng lại các hàm đã có trong thư viện và source code
 
 # OUTPUT FORMAT
 Cấu trúc file:
