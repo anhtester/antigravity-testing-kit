@@ -1,0 +1,19 @@
+Áp dụng chiến lược Risk-Based Testing (RBT), hãy sinh ra danh sách Test Case chi tiết cho hệ thống từ các bộ High-level Scenarios vừa rồi.
+
+Yêu cầu cụ thể cho mỗi Test Case:
+1. Đánh giá mức độ rủi ro (Risk Level: High, Medium, Low) cho tính năng/Module đang được thiết kế.
+2. Trình bày chi tiết Test Case bao gồm đầy đủ các trường thông tin:
+   - Module / Sub-module
+   - Tiêu đề TCs (Test Case Title / Summary)
+   - Tiền điều kiện (Pre-conditions)
+   - Các bước thực hiện (Test Steps)
+   - Kết quả mong đợi (Expected Results)
+   - Dữ liệu kiểm thử (Test Data)
+     - [Gợi ý cho AI sinh dữ liệu: Hãy sinh dữ liệu mẫu mang tính sát thực tế. Ví dụ:
+       - Thay vì ghi "Nhập mã số hợp lệ", hãy sinh data giả như "KH-2026-0012"
+       - Với Email, tạo mẫu dạng "test_khachhang_@domain.com"...]
+3. Hãy đảm bảo kịch bản bao phủ đa dạng các trường hợp:
+   - [Nhấn mạnh các trường hợp cần sinh kịch bản chi tiết:
+     - Happy Path đi trơn tru
+     - Negative Path thử các giá trị biên, vượt quá kí tự
+     - Các lỗi Timeout server...]

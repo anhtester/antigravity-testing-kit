@@ -1,0 +1,8 @@
+Tôi muốn tự động hóa luồng [TÊN TÍNH NĂNG - Ví dụ: Quản lý Khách Hàng]. Dưới đây là thông tin UI/Figma: 
+[MÔ TẢ NGẮN HOẶC ĐÍNH KÈM HÌNH ẢNH / URL UI]
+
+Yêu cầu: Đóng vai Kiến trúc sư Automation, hãy phân tích và tư vấn cho tôi:
+
+1. **Scoping:** Xác định các Page Object cần tạo cho luồng này (Ví dụ: `CustomerListPage`, `CustomerFormPage`).
+2. **Auth Strategy:** Đề xuất giải pháp Login (Dùng API đâm Session thẳng vào Context hay đi qua UI) tối ưu nhất cho môi trường hiện tại.
+3. **Element Strategy:** Gọi tên và xác định các nhóm Element phức tạp cần kỹ thuật xử lý riêng biệt có trong luồng này (Ví dụ: iFrame, Dropdown thư viện ngoài, hay Bảng dữ liệu ảo hóa).

@@ -1,0 +1,23 @@
+Dựa trên tài liệu yêu cầu và bối cảnh đã cung cấp ở trên, hãy phân tích yêu cầu này một cách chi tiết.
+
+Nhiệm vụ của bạn:
+1. Xác định luồng (Flows): Liệt kê các luồng:
+   - Luồng nghiệp vụ chính (Happy Path)
+   - Các luồng rẽ nhánh, ngoại lệ (Alternate/Exception Paths)
+   - [Gợi ý thêm nếu có: Hãy phân tích kỹ các trường hợp luồng nghiệp vụ phức tạp. Ví dụ:
+     - Bổ sung tập trung phân tích luồng gián đoạn kết nối
+     - Nhập sai định dạng báo lỗi
+     - Tải file quá dung lượng...]
+2. Phát hiện điểm mờ (Ambiguity): Phát hiện và liệt kê các điểm:
+   - Thiếu sót
+   - Mâu thuẫn
+   - Chưa rõ ràng trong yêu cầu
+   - [Gợi ý thêm nếu có: Ví dụ - Thử check kỹ xem tài liệu đã quy định:
+     - Độ dài trường Textbox chưa?
+     - Điều kiện Timeout gọi API chưa?]
+3. Đặt câu hỏi (Q&A): Đặt ra danh sách các câu hỏi cụ thể để tôi (hoặc PO/BA) có thể:
+   - Giải đáp
+   - Làm rõ các điểm mờ này trước khi thiết kế kịch bản kiểm thử
+   Hãy đánh số thứ tự cho các câu hỏi rõ ràng.
+
+Hãy trình bày kết quả phân tích một cách có cấu trúc bằng Markdown.

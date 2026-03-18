@@ -1,0 +1,12 @@
+Hãy xây dựng các file trong thư mục `utils/` để phục vụ cho dự án như dưới đây. Tôi sử dụng Framework [ĐIỀN TÊN FRAMEWORK - Ví dụ: Playwright TypeScript / Selenium Java]:
+
+1. **DataHelper** (Hoặc class tương tự): Chứa các hàm xử lý dữ liệu chung. 
+   - Hàm format ngày tháng chuỗi (Date Formatter).
+   - Hàm tạo tiền tệ (Currency formatter).
+   - Hàm quy chế sinh ID/email/tên ngẫu nhiên cực kỳ vững chắc (tạo Fake data ngẫu nhiên).
+2. **FileHelper** (Nếu luồng có tính năng Upload/Download): 
+   - Hàm Đọc từ file Mẫu (Template) -> Ghi đè diễn dải dữ liệu động từ Input JSON -> Lưu thành 1 file mới riêng biệt vào thư mục `temp/`.
+3. **ValidationHelper**: 
+   - Các hàm có trách nhiệm so sánh chuỗi, kiểm tra định dạng dữ liệu có mang tính chính xác tuyệt đối không (Hãy lưu ý cạo bỏ khoảng trắng thừa (trailing spaces) nếu cần khi so sánh).
+
+Vui lòng cung cấp mã nguồn chuẩn Clean Code cho các Helpers này.

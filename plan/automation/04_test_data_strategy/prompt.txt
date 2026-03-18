@@ -1,0 +1,6 @@
+Để bài Test chạy ổn định qua hệ thống CI nhiều lần, chúngrow không thể dùng dữ liệu Fix cứng (Hardcode) với các trường mang tính duy nhất (Unique) như Email, Username, hay Mã khách hàng.
+
+Hãy thiết kế cho tôi một chiến lược test data (Test Data Strategy) theo yêu cầu sau:
+1. Sinh dữ liệu ngẫu nhiên: Viết một hàm/class Utils để generate dữ liệu tự động (Có thể dùng thư viện như Faker hoặc UUID).
+2. Có thể truy vết (Traceable): [Ví dụ: Định dạng chuỗi ngẫu nhiên phải theo format `[TestName]_[Timestamp]_[Random]`, ví dụ: `AutoTest_20260318_7A82@domain.com` để tôi nhìn vào Database là biết data này do kịch bản nào tạo ra].
+3. Áp dụng: Hướng dẫn tôi cách sử dụng bộ dữ liệu này vào trong các Test Case sắp viết.

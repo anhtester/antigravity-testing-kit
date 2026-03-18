@@ -1,0 +1,8 @@
+Mọi cấu trúc (POM) và Dữ liệu (Test Data) đã sẵn sàng. Bây giờ, hãy viết file Script Test thực thi (ví dụ: `LoginTest.spec.ts` hoặc `LoginTest.java`).
+
+Yêu cầu bắt buộc khi sinh code kiểm thử:
+- Khởi tạo các class Page đã viết ở Bước 3.
+- Sử dụng dữ liệu ở Bước 4.
+- Code phải gọn gàng, chia thành các block dễ đọc (Arrange - Act - Assert).
+- CẢNH BÁO: Phải có điểm Assert (kiem tra) rõ ràng ở bước cuối cùng (hoặc xen kẽ các bước quan trọng) để khẳng định test Pass/Fail (Ví dụ: `expect(page.locator).toBeVisible()`).
+- Tuyệt đối tự động chờ trạng thái của UI, không tự ý thêm các hàm `sleep().`

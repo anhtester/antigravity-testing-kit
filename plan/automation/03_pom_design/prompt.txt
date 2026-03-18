@@ -1,0 +1,8 @@
+Dựa trên danh sách phân tích Locator chính xác mà bạn ĐÃ THU THẬP TỰ ĐỘNG được bằng trình duyệt ở Bước 2, xin hãy chuyển sang thiết kế kiến trúc Page Object Model (POM).
+
+Bạn nhớ TUYỆT ĐỐI KHOAN KHÔNG sinh file Execute chạy Test, mà hãy làm 3 công việc thiết kế các file Class Page sau:
+1. Định nghĩa Tên Class Page hợp lý (Ví dụ: `CustomerListPage.ts` hoặc `CustomerFormPage.java`).
+2. Khai báo các đối tượng biến Locators dựa trên thành quả lấy được (Ưu tiên các bộ chọn vững chãi, cấu trúc không dễ bị lệch lạc như `data-testid`, text, name, ID mang ngữ nghĩa cố định).
+3. Đóng gói các hàm Methods tương tác hoặc Assertions đặc thù nghiệp vụ (Ví dụ: `fillPhoneInput()`, `submitCustomerFlow()` hay `verifySuccessToast()`).
+
+Mời bạn phác thảo cấu trúc bộ Classes Page này để tôi review kiến trúc.

@@ -1,0 +1,11 @@
+Bây giờ, là bước cuối cùng, hãy chuẩn hóa format toàn bộ các Test Case chi tiết đã sinh ra ở Bước 5 vào định dạng bảng Markdown (phù hợp để copy/paste sang Excel hoặc import vào các hệ thống quản lý như Jira/Zephyr/Xray/TestRail).
+
+Bảng cần trải dài và bao gồm các cột sau:
+| TC ID | Module | Risk Level | Test Title | Pre-Condition | Test Steps | Expected Result | Priority | Test Data |
+
+Lưu ý nghiêm ngặt khi chép vào bảng:
+- Cột "Test Steps" và "Expected Result" cần được đánh số thứ tự rõ ràng nếu có nhiều thao tác (Sử dụng thẻ `<br>` hoặc danh sách gạch đầu dòng `-` nội bộ ô kết hợp xuống dòng chuẩn để định dạng 1 cell của bảng Markdown).
+- ID quy định thống nhất:
+  - [Ví dụ nếu bạn cần quy tắc ID: Đánh mã test case theo tên quy tắc như `CRM_CUST_TC_001`, tăng dần].
+- TUYỆT ĐỐI không được làm mất, hay tự ý rút gọn bất kỳ Test Case nào đã sinh ra trước đó. 
+- Nếu số lượng Test Case quá dài để vẽ trong 1 response, hãy xuất thành nhiều phần nhỏ (ví dụ: Part 1, Part 2) và hỏi tôi để tiếp tục sinh bảng cho xong.

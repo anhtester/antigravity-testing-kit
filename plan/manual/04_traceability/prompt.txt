@@ -1,0 +1,15 @@
+Từ kết quả phân rã ở Bước 3, hãy xây dựng Ma trận Truy xuất Yêu cầu (Traceability) dạng danh sách để đảm bảo độ bao phủ toàn diện (Coverage).
+
+Nhiệm vụ của bạn:
+1. Map từng (Sub)Module hoặc Rule logic với một mã Yêu Cầu định danh (Ví dụ: REQ-01, REQ-02).
+2. Kiểm tra chéo (Cross-check) xem có bất kì thông tin nào trong tài liệu gốc bị thiếu trong danh sách phân rã hay không:
+   - Chức năng
+   - Điều kiện đầu vào
+   - Quy tắc (Business Rule)
+   Xin hãy báo cáo cụ thể nếu thiếu.
+3. Liệt kê các kịch bản kiểm thử ở cấp độ High-Level (Test Scenarios) cho từng Module. 
+   - [Gợi ý trọng tâm cho AI: Hãy tập trung các scenario về:
+     - Phân quyền bảo mật Security
+     - Validation UI
+     - Business logic
+     Mỗi kịch bản chỉ cần 1 câu mô tả cốt lõi ngắn gọn.]

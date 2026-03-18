@@ -1,0 +1,9 @@
+Tôi có kịch bản BDD (viết bằng Gherkin) với bảng Examples như sau: 
+[PASTE NỘI DUNG FILE .FEATURE VÀO ĐÂY]
+
+Yêu cầu: Đóng vai Data Engineer, thực hiện Map (Chuyển đổi) nội dung này sang file `test_data/scenarios.json`:
+
+1. **Data Structuring:** Mỗi dòng trong bảng kịch bản phải thành một đối tượng JSON hoàn chỉnh.
+2. **Logic Extraction:** Tách biệt rõ ràng các trường dữ liệu đầu vào (Input) và các thông báo lỗi/kết quả mong đợi (Expected) từ các câu lệnh `Then`.
+3. **CamelCase Standards:** Chuyển đổi tên cột (Tiếng Việt/Anh) sang chuẩn `camelCase` để dùng làm key trong code lệnh (VD: 'Số tiền giải ngân' -> `disbursementAmount`).
+4. **Dynamic Value:** CỰC KỲ QUAN TRỌNG: Sử dụng biến động (Dynamic) bằng cấu trúc ngàm ngoặc như `{{RANDOM_ID}}` cho các trường yêu cầu tính chất duy nhất (Unique) để tránh trùng lặp khi chạy nhiều lần trên CI.

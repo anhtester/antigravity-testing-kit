@@ -1,0 +1,19 @@
+Dưới đây là kịch bản kiểm thử thủ công (Manual Test Case) mà chúng ta cần tự động hóa. Trước khi viết code, bạn BẮT BUỘC phải làm động tác khảo sát lấy locators thật trên UI (UI Recon).
+
+Thông tin môi trường:
+- URL Web/Hệ thống: [Nhập đường link trang web. Ví dụ: https://dev.crm.system.local/login]
+- Tài khoản Test (Nếu cần): [Ví dụ: user_admin@domain.com / password123]
+
+[Copy/Paste các bước Manual Test Case vào đây:
+Ví dụ:
+TC_01: Sinh dữ liệu Khách Hàng mới
+1. Đi tới bảng tin quản lý Khách Hàng
+2. Chọn Add Customer
+3. Nhập Tên, Điện Thoại và ấn Submit
+4. Kiểm tra xem Popup thành công có sinh ra không]
+
+Nhiệm vụ của bạn là SỬ DỤNG BỘ CÔNG CỤ TRÌNH DUYỆT (Ví dụ: Playwright / Selenium MCP Server đang kết nối với bạn) để thu thập dữ liệu:
+1. AI Tự khởi động Browser mở URL cung cấp.
+2. AI tự động điều hướng (navigate) và làm tuần tự thử các thao tác theo Test Case bên trên ở giao diện nền.
+3. Trong quá trình đó, hãy ĐỤNG VÀ THU THẬP TẤT CẢ mã Locator (dựa vào Accessibility tree, DOM `id`, `data-testid`, XPath bền vững nhất...) mà bạn thấy cần lấy để tương tác. TUYỆT ĐỐI không nhắm mắt đoán bừa bất kỳ Selector nào.
+4. Trả kết quả là tập hợp những danh sách các Page tham gia luồng test, kèm liệt kê hàng loạt các Locators bọc bằng bảng để tôi review chốt.

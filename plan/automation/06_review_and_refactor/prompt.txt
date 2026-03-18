@@ -1,0 +1,8 @@
+Bài Test chúng ta vừa viết đã chạy PASS trên máy cá nhân của tôi. Tuy nhiên, trước khi merge code vào kho lưu trữ (Repository), tôi muốn code phải thật sự rất "sạch" (Clean Code).
+
+Hãy rà soát lại đoạn code [Paste source code của bạn vào đây] và thực hiện các tối ưu (Refactor) sau:
+1. Xóa toàn bộ các dòng `console.log`, `System.out.println` hoặc code bị comment (//) sinh ra trong quá trình debug.
+2. Kiểm tra xem có locator hoặc biến nào được khai báo mà không sử dụng (unused code) không? Nếu có hãy xóa bỏ.
+3. [Gợi ý nâng cao: Gắn thêm các Tag như `@Regression`, `@Smoke` (với TestNG/Cucumber) hoặc `test.describe.configure({ mode: 'parallel' })` (với Playwright) để tối ưu cho luồng CI/CD].
+
+Xin hãy trả lại cho tôi phiên bản code cuối cùng hoàn thiện nhất.

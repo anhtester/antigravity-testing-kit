@@ -1,0 +1,10 @@
+Giả định rằng các yêu cầu đã được làm rõ thông qua quá trình Q&A vừa rồi. Hãy tiến hành phân rã hệ thống (Decomposition) tính năng này thành các Module hoặc Component nhỏ hơn (Feature Mapping) để dễ dàng quản lý trạm kiểm thử.
+
+Yêu cầu output:
+1. Chia kiến trúc/tính năng thành các Module, Sub-module cụ thể.
+   - [Gợi ý phạm vi phân rã: 
+     - Tách theo cụm UI (Header, Data Table, Form nhập thông tin popup)
+     - Hoặc tách theo luồng tác vụ (Flow tạo mới, Flow chỉnh sửa, Flow xóa)...]
+2. Cung cấp mô tả ngắn gọn về chức năng của từng Module.
+3. Chỉ ra sự phụ thuộc (Dependencies) hoặc dữ liệu tương tác giữa các Module này với nhau.
+   - [Gợi ý: Ví dụ AI cần lưu ý - Module Data Table hiển thị dữ liệu phụ thuộc vào dữ liệu được gửi thành công từ Module Form Đăng ký.]
