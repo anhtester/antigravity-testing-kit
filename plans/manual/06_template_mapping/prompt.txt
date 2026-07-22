@@ -13,9 +13,14 @@
 
 Đây là bước cuối cùng. Hãy **chuẩn hóa format** toàn bộ các Test Cases đã sinh ở Bước 5 vào bảng Markdown chuẩn, phù hợp để copy/paste sang Excel hoặc import vào Jira/Zephyr/Xray/TestRail.
 
-## Bảng chuẩn cần có các cột sau:
+## Bảng chuẩn cần có các cột sau (kèm Automation Metadata):
 
-| TC ID | Module | Risk Level | Test Title | Pre-Condition | Test Steps | Expected Result | Priority | Test Data |
+| TC ID | Module | Risk Level | Test Title | Pre-Condition | Test Steps | Expected Result | Priority | Test Data | Automatable | Auto Type | Tags |
+
+> **Giải thích Metadata:**
+> - **Automatable:** `Yes` / `No` / `Partial`
+> - **Auto Type:** `UI` / `API` / `Unit` / `N/A`
+> - **Tags:** `@Smoke`, `@Regression`, `@CriticalPath`, `@Security`, `@Boundary`
 
 ## Quy tắc khi lập bảng:
 
@@ -38,14 +43,16 @@ Ví dụ: `TC_LOGIN_001`, `TC_REG_001`...]
 ### Quy tắc TUYỆT ĐỐI:
 - ❌ **KHÔNG ĐƯỢC** bỏ sót hoặc rút gọn bất kỳ Test Case nào đã sinh ở Bước 5
 - ❌ **KHÔNG ĐƯỢC** tự ý gộp hoặc merge các Test Case khác nhau
+- ✅ **BẮT BUỘC** kiểm định qua AI Self-Quality Gate (100% unique TC ID, 1-1 step-expected matching, concrete test data, field validation coverage, automation metadata)
 - ✅ Nếu bảng quá dài → Chia thành **Part 1, Part 2, Part 3...** và hỏi tôi để tiếp tục
 
 ---
 
-## Output
+## Output & Integration
 
 Xuất kết quả dưới dạng **Artifact** (file `.md`) để tôi có thể:
 - Copy trực tiếp bảng vào Excel/Google Sheets
-- Import vào Jira/TestRail/Xray
+- Tự động ghi vào Google Sheet dự án qua `scripts/integrations/google_sheet/sheet_writer.js`
+- Export CSV import vào Jira/TestRail/Xray
 
 Nếu tổng số Test Cases > 30, hãy chia artifact thành nhiều phần và hỏi tôi "Tiếp tục Part X?" trước khi sinh tiếp.

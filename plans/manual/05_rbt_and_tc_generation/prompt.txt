@@ -77,7 +77,7 @@ Test Data **PHẢI CỤ THỂ**, không được dùng mô tả chung chung:
 2. **Sinh validation TCs riêng cho TỪNG trường** theo đặc tính riêng của field đó
 3. **KHÔNG gộp** validation nhiều trường vào 1 test case
 
-Áp dụng checklist validation theo loại field:
+Áp dụng checklist validation theo loại field (15 loại fields):
 
 | Loại Field | Validation cần test |
 |---|---|
@@ -91,6 +91,20 @@ Test Data **PHẢI CỤ THỂ**, không được dùng mô tả chung chung:
 | **File Upload** | File type hợp lệ/không hợp lệ · Max size · File rỗng (0 KB) · Tên file ký tự đặc biệt · Multiple files |
 | **Password** | Min/Max length · Ký tự đặc biệt · Chữ hoa/thường · Số · Copy-paste · Hiện/ẩn · Confirm password |
 | **Textarea** | Max length · Line breaks · HTML tags · Character counter |
+| **OTP / MFA Code** | Auto-focus ô tiếp theo · Paste chuỗi OTP · Hết hạn timeout · Vượt số lần thử lại (lockout) · Re-send rate limit |
+| **Date Range / Time Picker** | Ngày kết thúc < Ngày bắt đầu · Khung giờ trùng lặp · Max range limit (VD: 30 ngày) · Quá khứ/Tương lai restriction |
+| **Rich Text Editor (WYSIWYG)** | Sanitize HTML tags nguy hiểm (`<script>`, `<iframe>`) · Paste văn bản kèm format/ảnh · Character counter text thô vs HTML |
+| **Multi-Select / Tag Input** | Giới hạn số tag · Tag trùng lặp · Xóa bằng Backspace/nút X · Ký tự đặc biệt trong tag |
+| **Range Slider / Stepper** | Giới hạn min/max bounds · Violation bước nhảy (step increment) · Nhập tay vs Kéo slider |
+
+### 5b. Scenarios Chuyên Sâu & Non-Functional Checklist
+
+Tích hợp các trường hợp nâng cao:
+1. **Double Submit & Concurrent Edit:** Click 2 lần liên tiếp nút submit; 2 users cùng sửa 1 bản ghi.
+2. **Session & Network Resilience:** Session timeout / Token hết hạn mid-form; Mất mạng khi submit payload.
+3. **Localization & UTF-8 / Emoji:** Tiếng Việt có dấu phức tạp (`ỨỜÁ...`), emoji (`😀🚀`), ký tự đa ngôn ngữ.
+4. **Keyboard Accessibility (A11y):** Tab order hợp lý, kích hoạt bằng Enter/Space, viền focus state.
+5. **HTTP Status Codes (Cho API TCs):** Assert status codes `200`, `201`, `400`, `401`, `403`, `404`, `409`, `422`, `429`, `500/503`.
 
 **Ví dụ Field-Level Validation cho form "Đăng ký":**
 ```

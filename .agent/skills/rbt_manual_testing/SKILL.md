@@ -95,25 +95,19 @@ Sinh test cases **nhanh, đủ chất lượng** từ requirements/user stories 
    - **State Transition:** Test chuyển đổi trạng thái (nếu có workflow)
 4. **Validation chuyên biệt từng trường (Field-Level Validation):**
    - Liệt kê **tất cả input fields** trên form/UI
-   - Sinh validation test cases **riêng cho TỪNG trường** theo đặc tính riêng của nó
-   - Áp dụng checklist validation theo loại field (xem bảng Field-Level Validation bên dưới)
-   - **KHÔNG** gộp validation nhiều trường vào 1 test case
-5. **Sinh test cases** với đầy đủ fields:
-   - TC ID (format: `[DỰ_ÁN]_[MODULE]_TC_[SỐ]`)
-   - Module
-   - Test Case Title / Test Scenario
-   - Pre-conditions
-   - Test Steps (đánh số)
-   - Expected Results (đánh số tương ứng)
-   - Test Data (**phải cụ thể**, không placeholder)
-   - Priority (Critical / High / Medium / Low)
-6. **Xuất ra bảng Markdown** chuẩn, sẵn sàng copy sang Excel/Jira
+   - Sinh validation tes6. **Xuất ra bảng Markdown** chuẩn có đầy đủ metadata cho Automation, sẵn sàng sync vào Google Sheets hoặc Jira/TestRail.
+7. **Chạy Self-Quality Gate (Tự kiểm tra chất lượng):** Rà soát lại 100% test cases trước khi xuất kết quả.
 
-## Bảng Output
+## Bảng Output Standard (chuẩn hóa đầy đủ Metadata)
 
+```markdown
+| TC ID | Module | Test Scenario | Pre-Condition | Test Steps | Expected Result | Test Data | Priority | Automatable | Auto Type | Tags |
 ```
-| TC ID | Module | Test Scenario | Pre-Condition | Test Steps | Test Data | Expected Result | Priority |
-```
+
+> **Giải thích Metadata Automation:**
+> - **Automatable:** `Yes` / `No` / `Partial` (Độ khả thi để viết script tự động)
+> - **Auto Type:** `UI` / `API` / `Unit` / `N/A` (Loại automation phù hợp)
+> - **Tags:** `@Smoke`, `@Regression`, `@CriticalPath`, `@Security`, `@Boundary`
 
 ## Quy tắc Test Data (áp dụng cho cả 2 modes)
 
@@ -128,20 +122,75 @@ Sinh test cases **nhanh, đủ chất lượng** từ requirements/user stories 
 ✅ Đúng: "Nhập 256 ký tự vào trường Name (max: 255)"
 ```
 
-## Bảng Field-Level Validation (áp dụng cho cả 2 modes)
+## Bảng Field-Level Validation Checklist (15 Field Types)
 
 Khi form/UI có các input fields, agent **BẮT BUỘC** phải liệt kê từng trường và sinh validation TCs riêng theo loại:
 
 | Loại Field | Validation cần test |
 |---|---|
-| **Text (Name, Address...)** | Required/Optional · Min length · Max length · Chỉ khoảng trắng (whitespace-only) · Ký tự đặc biệt (`<>&"'`) · XSS injection (`<script>alert(1)</script>`) · SQL injection (`' OR 1=1--`) · Unicode/Emoji · Leading/trailing spaces |
+| **Text (Name, Address...)** | Required/Optional · Min/Max length · Whitespace-only · Ký tự đặc biệt (`<>&"'`) · XSS injection (`<script>alert(1)</script>`) · SQL injection (`' OR 1=1--`) · Unicode/Emoji · Leading/trailing spaces |
 | **Email** | Format hợp lệ (`user@domain.com`) · Thiếu `@` · Thiếu domain · Domain không hợp lệ · Nhiều `@` · Ký tự đặc biệt trước `@` · Max length · Case sensitivity · Email đã tồn tại (nếu unique) |
-| **Phone** | Chỉ chấp nhận số · Prefix hợp lệ (ví dụ: `+84`, `0`) · Min/Max length · Chữ cái xen lẫn · Dấu `-`, `.`, khoảng trắng · Mã vùng không hợp lệ |
-| **Date / DateTime** | Format đúng (dd/MM/yyyy, ISO...) · Ngày không tồn tại (`31/02`, `30/02`) · Năm nhuận (`29/02/2024`) · Ngày quá khứ / tương lai (tùy business rule) · Giá trị min/max date · Timezone (nếu áp dụng) |
-| **Number / Currency** | Min/Max value · Số âm · Số 0 · Số thập phân · Ký tự không phải số · Overflow (số cực lớn) · Leading zeros · Định dạng currency (dấu phẩy, dấu chấm) |
-| **Dropdown / Select** | Giá trị mặc định · Tất cả options hợp lệ · Option bị disabled · Thay đổi selection · Required validation (chưa chọn) |
+| **Phone** | Chỉ số · Prefix hợp lệ (ví dụ: `+84`, `0`) · Min/Max length · Chữ cái xen lẫn · Dấu `-`, `.`, khoảng trắng · Mã vùng không hợp lệ |
+| **Date / DateTime** | Format đúng (dd/MM/yyyy, ISO...) · Ngày không tồn tại (`31/02`, `30/02`) · Năm nhuận (`29/02/2024`) · Quá khứ / tương lai · Min/max date · Timezone |
+| **Number / Currency** | Min/Max value · Số âm · Số 0 · Số thập phân · Ký tự không phải số · Overflow · Leading zeros · Định dạng currency |
+| **Dropdown / Select** | Giá trị mặc định · Tất cả options hợp lệ · Option disabled · Thay đổi selection · Required validation |
 | **Checkbox / Radio** | Trạng thái mặc định · Check/Uncheck · Required validation · Nhóm radio (chỉ chọn 1) |
-| **File Upload** | File type hợp lệ/không hợp lệ · Max size · File rỗng (0 KB) · Tên file có ký tự đặc biệt · Multiple files (nếu cho phép) · Kéo thả vs nút chọn |
+| **File Upload** | File type hợp lệ/không hợp lệ · Max size · File rỗng (0 KB) · Tên file ký tự đặc biệt · Multiple files · Kéo thả vs nút chọn |
+| **Password** | Min/Max length · Ký tự đặc biệt · Chữ hoa/thường · Số · Copy-paste bị chặn? · Hiện/ẩn password · Confirm password |
+| **Textarea** | Max length · Line breaks · HTML tags · Resize · Character counter |
+| **OTP / MFA Code** *(Mới)* | Auto-focus ô tiếp theo · Paste chuỗi OTP · Hết hạn timeout · Vượt số lần nhập sai (retry limit/lockout) · Re-send OTP rate limit |
+| **Date Range / Time Picker** *(Mới)* | Ngày kết thúc < Ngày bắt đầu · Khung giờ trùng lặp (time conflict) · Giới hạn khoảng ngày (VD: max 30 ngày) · Quá khứ/Tương lai restriction |
+| **Rich Text Editor (WYSIWYG)** *(Mới)* | Sanitize HTML tags nguy hiểm (`<script>`, `<iframe>`) · Paste văn bản kèm format/ảnh · Character counter tính theo text thô vs HTML markup |
+| **Multi-Select / Tag Input** *(Mới)* | Giới hạn số lượng tag · Tag trùng lặp · Xóa tag bằng Backspace/nút X · Tag có ký tự đặc biệt |
+| **Range Slider / Stepper** *(Mới)* | Giới hạn min/max · Bước nhảy (step increment violation) · Nhập tay trực tiếp so với kéo slider |
+
+## Scenarios Chuyên Sâu & Non-Functional Checklist (Áp dụng nâng cao)
+
+Agent phải tích hợp thêm các tình huống kiểm thử nâng cao khi phân tích module:
+
+1. **Race Condition & Double Submit:**
+   - Double click liên tiếp nút Save/Submit (ngăn tạo 2 bản ghi trùng)
+   - Concurrent editing: 2 tabs/users cùng sửa 1 bản ghi đồng thời
+2. **Session & Network Resilience:**
+   - Session timeout / Token hết hạn giữa chừng khi đang điền form
+   - Network interruption (mất mạng khi submit payload, slow 3G timeout, retry logic)
+3. **Localization & UTF-8 / Emoji:**
+   - Nhập tiếng Việt đầy đủ dấu (`Tiếng Việt có dấu phức tạp ỨỜÁ...`)
+   - Nhập emoji (`😀🎉🚀`) và ký tự đa ngôn ngữ (RTL, tiếng Trung, Nhật, Ả Rập)
+4. **Keyboard Accessibility (A11y):**
+   - Điều hướng bằng phím `Tab` theo thứ tự hợp lý, kích hoạt bằng `Enter`/`Space`
+   - Hiển thị viền focus state rõ ràng
+5. **HTTP Status Codes (Cho API Test Cases):**
+   - Assert đầy đủ các status codes tiêu chuẩn: `200/201 Success`, `400 Bad Request`, `401 Unauthorized`, `403 Forbidden`, `404 Not Found`, `409 Conflict`, `422 Unprocessable Entity`, `429 Rate Limit`, `500/503 Server Error`.
+
+---
+
+## Direct Export & Integration Options
+
+Sau khi sinh Test Cases, agent có thể hỗ trợ user xuất hoặc đồng bộ dữ liệu:
+- **Google Sheets:** Tự động ghi test cases vào Google Sheet dự án thông qua script [sheet_writer.js](file:///Users/anhtester/AnhTester/Antigravity/antigravity-testing-kit/scripts/integrations/google_sheet/sheet_writer.js).
+- **Jira Xray / TestRail Export:** Định dạng Markdown/CSV chuẩn giúp import 1-click lên các công cụ Quản lý Test.
+
+---
+
+## 🛡️ AI Self-Quality Gate (Quy trình Tự Kiểm Định Chất Lượng)
+
+Trước khi xuất kết quả cuối cùng cho user, Agent **BẮT BUỘC** tự rà soát qua 5 tiêu chí:
+- [ ] **1. Unique TC ID:** Đảm bảo không trùng mã TC ID và đúng quy tắc dự án (`PROJECT_MODULE_TC_001`).
+- [ ] **2. 1-to-1 Step-Expected Matching:** Các bước `Test Steps` (đánh số 1,2,3) khớp 1-1 với `Expected Result` (đánh số 1,2,3).
+- [ ] **3. Concrete Test Data:** 100% test data chứa giá trị cụ thể, không còn từ ngữ mơ hồ ("hợp lệ", "dữ liệu đúng").
+- [ ] **4. Field Validation Coverage:** Mọi input field trên UI đều có ít nhất 1 Positive TC và 2+ Negative/Boundary TCs.
+- [ ] **5. Automation Metadata Ready:** 100% test cases được gắn đầy đủ `Automatable`, `Auto Type`, và `@Tag`.
+
+## Anti-Patterns (Mode QUICK)
+
+- ❌ Sinh test data chung chung / placeholder
+- ❌ Chỉ có Happy Path, thiếu Negative/Boundary
+- ❌ Bỏ qua validation rules trong requirements
+- ❌ Test Steps mơ hồ ("nhập dữ liệu" → phải ghi rõ nhập gì, ở đâu)
+- ❌ Gộp validation nhiều trường vào 1 test case → mỗi trường phải có TC validation riêng
+- ❌ Dùng chung 1 bộ validation cho tất cả fields (mỗi field type có checklist riêng)
+- ❌ Bỏ qua security validation (XSS, SQL injection) cho text fieldsKéo thả vs nút chọn |
 | **Password** | Min/Max length · Yêu cầu ký tự đặc biệt · Yêu cầu chữ hoa/thường · Yêu cầu số · Copy-paste bị chặn? · Hiện/ẩn password · Confirm password khớp/không khớp |
 | **Textarea** | Max length · Line breaks · HTML tags · Resize (nếu UI cho phép) · Character counter (nếu có) |
 
@@ -287,25 +336,26 @@ Quy trình bài bản, tuần tự cho module phức tạp. Bao gồm phân tíc
 
 ---
 
-### Bước 6: Template Mapping (Chuẩn hóa Format)
+### Bước 6: Template Mapping (Chuẩn hóa Format & Metadata)
 
-**Mục đích:** Đóng gói test cases thành bảng Markdown chuẩn, sẵn sàng copy sang Excel/Jira.
+**Mục đích:** Đóng gói test cases thành bảng Markdown chuẩn đầy đủ metadata cho Automation, sẵn sàng copy sang Excel/Jira hoặc sync vào Google Sheets.
 
 **Agent phải:**
 1. Chuẩn hóa toàn bộ test cases vào bảng Markdown:
 
-```
-| TC ID | Module | Risk Level | Test Title | Pre-Condition | Test Steps | Expected Result | Priority | Test Data |
+```markdown
+| TC ID | Module | Risk Level | Test Title | Pre-Condition | Test Steps | Expected Result | Priority | Test Data | Automatable | Auto Type | Tags |
 ```
 
 2. Quy tắc bảng:
    - TC ID theo format thống nhất (ví dụ: `CRM_CUST_TC_001`)
    - Test Steps và Expected Result đánh số, dùng `<br>` xuống dòng trong cell
+   - Gắn đầy đủ metadata `Automatable` (`Yes`/`No`/`Partial`), `Auto Type` (`UI`/`API`/`Unit`/`N/A`), và `@Tags` (`@Smoke`, `@Regression`, `@CriticalPath`...)
    - **TUYỆT ĐỐI không được bỏ sót** bất kỳ test case nào đã sinh ở Bước 5
    - Nếu quá dài → chia thành Part 1, Part 2... và hỏi user để tiếp tục
-3. Xuất output dưới dạng Artifact (`test_cases_<module>.md`)
+3. **Chạy Self-Quality Gate:** Kiểm định lại 5 tiêu chí chất lượng trước khi xuất Artifact (`test_cases_<module>.md`).
 
-**Output:** Bảng Test Cases Markdown hoàn chỉnh.
+**Output:** Bảng Test Cases Markdown hoàn chỉnh kèm Metadata Automation.
 
 ---
 
