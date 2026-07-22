@@ -299,6 +299,62 @@ project-root/
         └── api-tests.yml
 ```
 
+### 8. Playwright API (TypeScript)
+
+```text
+project-root/
+├── playwright.config.ts
+├── package.json
+├── .env.example
+├── .gitignore
+├── README.md
+├── src/
+│   ├── api/                      # API client classes per resource
+│   │   ├── base.api.ts           # Base API request context, default headers
+│   │   ├── auth.api.ts
+│   │   └── user.api.ts
+│   ├── models/                   # TypeScript interfaces / DTOs
+│   │   └── user.model.ts
+│   ├── utils/                    # Helpers & data generators
+│   │   ├── test-data.ts
+│   │   └── schema-validator.ts
+│   └── tests/                    # API test specs
+│       ├── auth.api.spec.ts
+│       └── user.api.spec.ts
+└── test-data/
+    ├── payloads/
+    └── schemas/
+```
+
+### 9. Pytest + Requests (Python)
+
+```text
+project-root/
+├── pyproject.toml
+├── requirements.txt
+├── pytest.ini
+├── conftest.py                   # Root fixtures (base_url, auth_token, api_session)
+├── .env.example
+├── .gitignore
+├── README.md
+├── src/
+│   ├── api/                      # API client classes
+│   │   ├── base_api.py           # requests.Session wrapper
+│   │   ├── auth_api.py
+│   │   └── user_api.py
+│   ├── models/                   # Pydantic models / dataclasses
+│   │   └── user_model.py
+│   ├── utils/                    # Helpers & data generators
+│   │   ├── test_data.py
+│   │   └── schema_validator.py
+│   └── tests/                    # Pytest test files
+│       ├── test_auth_api.py
+│       └── test_user_api.py
+└── test-data/
+    ├── payloads/
+    └── schemas/
+```
+
 ---
 
 ## Component Checklist (Bắt Buộc)
@@ -346,5 +402,5 @@ Mỗi framework PHẢI bao gồm các thành phần sau:
 ## Tham chiếu
 
 - **Skill chi tiết:** `.agent/skills/framework_architect/SKILL.md`
-- **Rules:** `.agent/rules/automation_rules.md`, `.agent/rules/locator_strategy.md`
+- **Rules:** `.agent/rules/automation_rules.md`, `.agent/rules/locator_strategy.md`, `.agent/rules/api_rules.md`
 - **Workflow scaffold:** `/generate_automation_framework`

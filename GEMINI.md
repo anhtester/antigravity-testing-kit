@@ -141,6 +141,7 @@ Agent phải tham chiếu quy tắc chi tiết trong `.agent/rules/`:
 - [Quy tắc Playwright](.agent/rules/playwright_rules.md) — Browser setup, locator semantic, wait strategy
 - [Quy tắc Selenium](.agent/rules/selenium_rules.md) — WebDriverWait, TestNG structure
 - [Quy tắc Appium](.agent/rules/appium_rules.md) — Mobile locator, scroll, permission
+- [Quy tắc API Testing](.agent/rules/api_rules.md) — Standard HTTP assertions, Schema validation, Auth lifecycle
 
 ## 5. Tham Chiếu Skills
 

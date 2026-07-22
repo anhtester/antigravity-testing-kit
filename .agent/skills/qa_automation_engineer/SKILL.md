@@ -104,8 +104,10 @@ Use workflow: `generate_api_tests_from_swagger`
 
 Triggers when user provides:
 
-- Swagger URL
-- OpenAPI specification
+- Swagger URL / OpenAPI specification
+- Postman Collection (JSON) / cURL command
+- Requirement / API documentation text
+- Asks for API test cases / API automation (REST Assured, Playwright API, Pytest Requests, Supertest)
 
 ---
 
@@ -328,6 +330,7 @@ The agent MUST also follow the detailed rules defined in `.agent/rules/`:
 - [playwright_rules.md](.agent/rules/playwright_rules.md) — Playwright-specific rules
 - [selenium_rules.md](.agent/rules/selenium_rules.md) — Selenium-specific rules
 - [appium_rules.md](.agent/rules/appium_rules.md) — Appium mobile automation rules
+- [api_rules.md](.agent/rules/api_rules.md) — API automation standards, assertions, auth management
 
 ---
 

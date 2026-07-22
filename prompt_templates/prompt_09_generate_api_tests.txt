@@ -27,22 +27,29 @@ GET /api/customers/{id}
 # CONSTRAINTS
 1. Viết test cover đủ các HTTP status codes:
    - 200/201: Thành công
-   - 400: Validation lỗi (thiếu field, sai format)
-   - 401: Chưa xác thực
-   - 403: Không có quyền
+   - 400: Validation lỗi / Malformed JSON syntax
+   - 401: Chưa xác thực (Missing/Invalid Token)
+   - 403: Không có quyền (Forbidden / BOLA IDOR User A -> User B)
    - 404: Không tìm thấy
+   - 406: Not Acceptable (Accept header mismatch)
+   - 409: Conflict (Email/Code trùng lặp hoặc Race Condition concurrency)
+   - 413: Payload Too Large
+   - 415: Unsupported Media Type (Content-Type mismatch)
+   - 429: Too Many Requests (Rate Limiting)
    - 500: Server error (nếu test được)
 
 2. Mỗi test case kiểm tra:
-   - Status code đúng
-   - Response body structure đúng
+   - Status code đúng (exact match)
+   - Response body structure & JSON Schema validation
    - Response time chấp nhận được (< 2 giây)
-   - Headers đúng (Content-Type, etc.)
+   - Headers đúng (Content-Type, Security headers)
+   - KHÔNG làm lộ sensitive data (password, hash, secretKey trong response body)
 
-3. Test data:
+3. Test data & Nâng cao:
    - Positive: Request hợp lệ
-   - Negative: Thiếu required fields, sai format, giá trị biên
-   - Security: SQL injection, XSS trong input
+   - Negative: Thiếu required fields, sai format, giá trị biên (min/max length)
+   - Security OWASP API: BOLA/IDOR (403), Mass Assignment (`role`), SQL injection, XSS trong input, ReDoS (pass > 10k chars)
+   - Concurrency & Protocol: Parallel creation (409), Content-Type mismatch (415), Rate limit (429)
 
 4. Nguyên tắc:
    - Mỗi test case độc lập

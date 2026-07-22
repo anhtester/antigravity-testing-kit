@@ -7,7 +7,7 @@ skills:
 
 # Workflow: Sinh API Tests từ Swagger/OpenAPI
 
-> **BẮT BUỘC (MANDATORY SKILL):** Bạn PHẢI nạp và đọc kỹ nội dung của skill **`qa_automation_engineer`** (tại `.agent/skills/qa_automation_engineer/SKILL.md`) trước khi bắt đầu. Ngoài ra, tham khảo thêm skill **`test_data_generator`** để sinh test data đúng chuẩn.
+> **BẮT BUỘC (MANDATORY SKILL & RULES):** Bạn PHẢI nạp và đọc kỹ nội dung của skill **`qa_automation_engineer`** (tại `.agent/skills/qa_automation_engineer/SKILL.md`) và quy tắc **`api_rules.md`** (tại `.agent/rules/api_rules.md`) trước khi bắt đầu. Ngoài ra, tham khảo thêm skill **`test_data_generator`** để sinh test data đúng chuẩn.
 
 Workflow này giúp agent phân tích Swagger/OpenAPI specification, xác định các endpoints, sinh API test cases có cấu trúc, và (tùy mode) tự động sinh automation scripts hoàn chỉnh.
 
@@ -32,12 +32,15 @@ Workflow này giúp agent phân tích Swagger/OpenAPI specification, xác địn
 
 ### Bước 1: Tiếp nhận & Phân tích Spec (Parse & Analyze)
 
-1. **Thu thập Swagger/OpenAPI spec** từ user:
-   - **URL trực tiếp** (VD: `https://api.example.com/swagger.json`) → dùng `read_url_content` để fetch
-   - **File local** (JSON/YAML) → dùng `view_file` để đọc
+1. **Thu thập API Specification / Input Data** từ user:
+   - **URL Swagger/OpenAPI** (VD: `https://api.example.com/swagger.json`) → dùng `read_url_content` để fetch
+   - **File local Swagger/OpenAPI** (JSON/YAML) → dùng `view_file` để đọc
    - **Swagger UI URL** → trích xuất URL spec gốc (thường là `/v2/api-docs` hoặc `/v3/api-docs`)
-   - **Scalar API Reference URL** → inspect HTML để tìm `data-configuration` chứa URL spec (thường là `/swagger/json`, `/reference/json`, hoặc relative path trong attribute `url`). VD: `https://book.anhtester.com/swagger` → spec tại `https://book.anhtester.com/swagger/json`
+   - **Scalar API Reference URL** → inspect HTML để tìm `data-configuration` chứa URL spec (VD: `https://book.anhtester.com/swagger` → spec tại `/swagger/json`)
    - **Các dạng API Doc khác** (Redoc, Stoplight, RapiDoc) → tìm URL spec trong page source hoặc network requests
+   - **Postman Collection File** (JSON format v2.0/v2.1) → parse danh sách items, requests, headers, body raw/form-data
+   - **Danh sách cURL commands** → parse HTTP method, URL, headers (`-H`), body (`-d` / `--data-raw`)
+   - **Tài liệu Requirement / API Spec Text** → trích xuất endpoints, parameters, expected response status & body
 2. **Parse spec** và trích xuất thông tin:
    - Base URL, API version, authentication scheme (Bearer, API Key, OAuth2, Basic)
    - Danh sách tất cả endpoints: `method + path`
