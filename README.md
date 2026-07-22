@@ -28,7 +28,7 @@ antigravity-testing-kit/
 ├── .agent/
 │   ├── rules/           # Quy tắc bắt buộc AI phải tuân theo
 │   ├── skills/          # 10 kỹ năng chuyên biệt cho AI
-│   └── workflows/       # 15 kịch bản thực thi step-by-step (slash commands)
+│   └── workflows/       # 16 kịch bản thực thi step-by-step (slash commands)
 ├── plans/
 │   ├── manual/          # Quy trình 6 bước sinh Manual Test Cases (AI-RBT)
 │   ├── automation/      # Quy trình 6 bước sinh Automation Scripts
@@ -53,7 +53,7 @@ antigravity-testing-kit/
 |---------|--------|
 | `rules/` | Quy tắc bắt buộc: POM, locator strategy, smart waits, Playwright/Selenium/Appium rules |
 | `skills/` | 10 kỹ năng chuyên biệt: automation engineer, manual testing, UI debug, locator healer, test data generator, framework architect, jira integration... |
-| `workflows/` | 15 slash commands: `/generate_automation_from_testcases`, `/generate_manual_testcases_rbt`, `/generate_cross_module_test_plan`, `/generate_combinatorial_test_data`... |
+| `workflows/` | 16 slash commands: `/generate_automation_from_testcases`, `/generate_manual_testcases_rbt`, `/generate_cross_module_test_plan`, `/generate_combinatorial_test_data`... |
 ---
 
 ### `scripts/` — Công Cụ Bổ Trợ & Tích Hợp

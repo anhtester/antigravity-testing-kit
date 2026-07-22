@@ -25,14 +25,16 @@ Phân tích requirement và tạo bộ test case đầy đủ theo phương phá
    - Boundary Value Analysis (giá trị biên)
    - Decision Table (bảng quyết định — cho logic nhiều điều kiện)
    - State Transition (chuyển trạng thái — cho workflow)
-5. Bao phủ: Happy path, Negative, Boundary, Edge cases, Security/Permission, Validation
-6. Test Data phải CỤ THỂ, không dùng mô tả chung:
+5. Validation chuyên biệt 15 loại input fields (Text, Email, Phone, Date, Number, Dropdown, Checkbox/Radio, File Upload, Password, Textarea, OTP/MFA, Date Range, Rich Text, Multi-Select, Range Slider).
+6. Bao phủ: Happy path, Negative, Boundary, Edge cases, Security/Permission, Race Condition/Double Submit, Session/Network Resilience, Keyboard Accessibility (A11y), Localization/UTF-8/Emoji.
+7. Test Data phải CỤ THỂ, không dùng mô tả chung:
    - Đúng: "Nhập email: test_user_01@domain.com"
    - Sai: "Nhập email hợp lệ"
+8. Kiểm định qua AI Self-Quality Gate (100% unique TC ID, step-expected 1-1 matching, concrete test data, field coverage, automation metadata ready).
 
 # OUTPUT FORMAT
-- Xuất kết quả ra file CSV (vd: testcases_module_name.csv) để mở trực tiếp bằng Excel.
-- Các cột bắt buộc:
-  TC ID, Module, Risk Level, Test Scenario, Pre-Condition, Test Steps, Test Data, Expected Result, Priority
-- Quy tắc TC ID: [DỰ_ÁN]_[MODULE]_TC_[SỐ] (Ví dụ: CRM_LOGIN_TC_001)
+- Xuất kết quả ra file Markdown/CSV để mở bằng Excel hoặc sync Google Sheets / Jira Xray.
+- Các cột bắt buộc (kèm Automation Metadata):
+  `TC ID`, `Module`, `Risk Level`, `Test Scenario`, `Pre-Condition`, `Test Steps`, `Test Data`, `Expected Result`, `Priority`, `Automatable`, `Auto Type`, `Tags`
+- Quy tắc TC ID: `[DỰ_ÁN]_[MODULE]_TC_[SỐ]` (Ví dụ: `CRM_LOGIN_TC_001`)
 
